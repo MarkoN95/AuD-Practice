@@ -20,13 +20,13 @@ public class SlidingCoin {
         boolean[] visited = new boolean[n];
         boolean[] win = new boolean[n];
 
-        stack.addLast(0);
+        stack.push(0);
 
         while(!stack.isEmpty()) {
-            int currVertex = stack.peekLast();
+            int currVertex = stack.peek();
 
             if(visited[currVertex]) {
-                topologicalOrder.addFirst(stack.removeLast());
+                topologicalOrder.addFirst(stack.pop());
             }
             else {
                 visited[currVertex] = true;
@@ -35,7 +35,7 @@ public class SlidingCoin {
                     int successor = adjLists[currVertex][i];
 
                     if(!visited[successor]) {
-                        stack.addLast(successor);
+                        stack.push(successor);
                     }
                 }
             }
