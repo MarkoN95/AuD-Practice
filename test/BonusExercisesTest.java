@@ -1,0 +1,63 @@
+import org.junit.Test;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import BonusExercises.*;
+
+import static org.junit.Assert.assertEquals;
+
+public class BonusExercisesTest {
+
+    private ByteArrayOutputStream out;
+    private String expected = "";
+
+    private void init(String outPath) {
+        if(out != null) {
+            try {
+                out.close();
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        out = new ByteArrayOutputStream();
+
+        try {
+            expected = new String(Files.readAllBytes(Paths.get(outPath)));
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testSlidingCoinExample() throws FileNotFoundException {
+        String inPath = "testCases/SlidingCoin/example.in.txt";
+        String outPath = "testCases/SlidingCoin/example.out.txt";
+
+        init(outPath);
+
+        SlidingCoin.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testSlidingCoinExtra() throws FileNotFoundException {
+        String inPath = "testCases/SlidingCoin/extra.in.txt";
+        String outPath = "testCases/SlidingCoin/extra.out.txt";
+
+        init(outPath);
+
+        SlidingCoin.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+}
