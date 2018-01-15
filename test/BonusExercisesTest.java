@@ -60,4 +60,49 @@ public class BonusExercisesTest {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void testSubmatrixSumExample() throws FileNotFoundException {
+        String inPath = "testCases/SubmatrixSum/example.in.txt";
+        String outPath = "testCases/SubmatrixSum/example.out.txt";
+
+        init(outPath);
+
+        SubmatrixSum.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testSubmatrixSumSmall() throws FileNotFoundException {
+        String inPath = "testCases/SubmatrixSum/small.in.txt";
+        String outPath = "testCases/SubmatrixSum/small.out.txt";
+
+        init(outPath);
+
+        SubmatrixSum.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testSubmatrixSumBig() throws FileNotFoundException {
+        String inPath = "testCases/SubmatrixSum/big.in.txt";
+        String outPath = "testCases/SubmatrixSum/big.out.txt";
+
+        init(outPath);
+
+        SubmatrixSum.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
