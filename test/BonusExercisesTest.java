@@ -105,4 +105,34 @@ public class BonusExercisesTest {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void testInversionsExample() throws FileNotFoundException {
+        String inPath = "testCases/Inversions/example.in.txt";
+        String outPath = "testCases/Inversions/example.out.txt";
+
+        init(outPath);
+
+        Inversions.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testInversionsExtra() throws FileNotFoundException {
+        String inPath = "testCases/Inversions/extra.in.txt";
+        String outPath = "testCases/Inversions/extra.out.txt";
+
+        init(outPath);
+
+        Inversions.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
