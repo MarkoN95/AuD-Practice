@@ -41,7 +41,7 @@ public class MountainTrip {
         arr[b] = temp;
     }
 
-    // largest index >= elem
+    // first index >= elem
     private static int lowerIndex(int[] arr, int elem) {
         int lo = 0, hi = arr.length - 1;
 
@@ -59,7 +59,7 @@ public class MountainTrip {
         return lo;
     }
 
-    // smallest index <= elem
+    // last index <= elem
     private static int upperIndex(int[] arr, int elem) {
         int lo = 0, hi = arr.length - 1;
 
