@@ -165,4 +165,34 @@ public class BonusExercisesTest {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void testDynoExample() throws FileNotFoundException {
+        String inPath = "testCases/Dyno/example.in.txt";
+        String outPath = "testCases/Dyno/example.out.txt";
+
+        init(outPath);
+
+        Dyno.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testDynoExtra() throws FileNotFoundException {
+        String inPath = "testCases/Dyno/extra.in.txt";
+        String outPath = "testCases/Dyno/extra.out.txt";
+
+        init(outPath);
+
+        Dyno.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
