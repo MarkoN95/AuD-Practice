@@ -178,7 +178,7 @@ public class BonusExercisesTest {
                 new PrintStream(out)
         );
 
-        assertEquals(expected, out.toString().replace("\r", ""));
+        assertEquals(expected, out.toString());
     }
 
     @Test
