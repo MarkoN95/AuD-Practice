@@ -195,4 +195,49 @@ public class BonusExercisesTest {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void testLightCoffeeExample() throws FileNotFoundException {
+        String inPath = "testCases/LightCoffee/example.in.txt";
+        String outPath = "testCases/LightCoffee/example.out.txt";
+
+        init(outPath);
+
+        LightCoffee.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testLightCoffeeExtra() throws FileNotFoundException {
+        String inPath = "testCases/LightCoffee/extra.in.txt";
+        String outPath = "testCases/LightCoffee/extra.out.txt";
+
+        init(outPath);
+
+        LightCoffee.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testLightCoffeeSubtask() throws FileNotFoundException {
+        String inPath = "testCases/LightCoffee/weight_1.in.txt";
+        String outPath = "testCases/LightCoffee/weight_1.out.txt";
+
+        init(outPath);
+
+        LightCoffee.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
