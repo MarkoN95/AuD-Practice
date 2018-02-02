@@ -240,4 +240,34 @@ public class BonusExercisesTest {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void testDynamicOSExample() throws FileNotFoundException {
+        String inPath = "testCases/DynamicOS/example.in.txt";
+        String outPath = "testCases/DynamicOS/example.out.txt";
+
+        init(outPath);
+
+        DynamicOS.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testDynamicOSExtra() throws FileNotFoundException {
+        String inPath = "testCases/DynamicOS/extra.in.txt";
+        String outPath = "testCases/DynamicOS/extra.out.txt";
+
+        init(outPath);
+
+        DynamicOS.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
