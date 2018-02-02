@@ -242,6 +242,36 @@ public class BonusExercisesTest {
     }
 
     @Test
+    public void testTreeRotationsExample() throws FileNotFoundException {
+        String inPath = "testCases/TreeRotations/example.in.txt";
+        String outPath = "testCases/TreeRotations/example.out.txt";
+
+        init(outPath);
+
+        TreeRotations.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testTreeRotationsExtra() throws FileNotFoundException {
+        String inPath = "testCases/TreeRotations/extra.in.txt";
+        String outPath = "testCases/TreeRotations/extra.out.txt";
+
+        init(outPath);
+
+        TreeRotations.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
     public void testFrequencyAssignmentExample() throws FileNotFoundException {
         String inPath = "testCases/FrequencyAssignment/example.in.txt";
         String outPath = "testCases/FrequencyAssignment/example.out.txt";
