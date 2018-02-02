@@ -82,7 +82,7 @@ class Heap {
     public void add(int elem) {
         if(size < data.length) {
             data[size++] = elem;
-            
+
             sift_up(size - 1);
         }
         else {

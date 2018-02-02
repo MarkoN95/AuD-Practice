@@ -242,6 +242,51 @@ public class BonusExercisesTest {
     }
 
     @Test
+    public void testFrequencyAssignmentExample() throws FileNotFoundException {
+        String inPath = "testCases/FrequencyAssignment/example.in.txt";
+        String outPath = "testCases/FrequencyAssignment/example.out.txt";
+
+        init(outPath);
+
+        FrequencyAssignment.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testFrequencyAssignmentGeneral() throws FileNotFoundException {
+        String inPath = "testCases/FrequencyAssignment/general_instances.in.txt";
+        String outPath = "testCases/FrequencyAssignment/general_instances.out.txt";
+
+        init(outPath);
+
+        FrequencyAssignment.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testFrequencyAssignmentSubtask() throws FileNotFoundException {
+        String inPath = "testCases/FrequencyAssignment/small_m.in.txt";
+        String outPath = "testCases/FrequencyAssignment/small_m.out.txt";
+
+        init(outPath);
+
+        FrequencyAssignment.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
     public void testDynamicOSExample() throws FileNotFoundException {
         String inPath = "testCases/DynamicOS/example.in.txt";
         String outPath = "testCases/DynamicOS/example.out.txt";
