@@ -242,6 +242,51 @@ public class BonusExercisesTest {
     }
 
     @Test
+    public void testFleaMarketExample() throws FileNotFoundException {
+        String inPath = "testCases/FleaMarket/example.in.txt";
+        String outPath = "testCases/FleaMarket/example.out.txt";
+
+        init(outPath);
+
+        FleaMarket.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testFleaMarketExtra() throws FileNotFoundException {
+        String inPath = "testCases/FleaMarket/extra.in.txt";
+        String outPath = "testCases/FleaMarket/extra.out.txt";
+
+        init(outPath);
+
+        FleaMarket.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testFleaMarketSubtask() throws FileNotFoundException {
+        String inPath = "testCases/FleaMarket/subtask1.in.txt";
+        String outPath = "testCases/FleaMarket/subtask1.out.txt";
+
+        init(outPath);
+
+        FleaMarket.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
     public void testTreeRotationsExample() throws FileNotFoundException {
         String inPath = "testCases/TreeRotations/example.in.txt";
         String outPath = "testCases/TreeRotations/example.out.txt";
