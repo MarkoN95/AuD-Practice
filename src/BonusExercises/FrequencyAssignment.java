@@ -6,9 +6,82 @@ import java.util.Scanner;
 
 public class FrequencyAssignment {
 
+    public static int prev(int iStar, int j, int[] BEST, int[] SBEST) {
+        if(BEST[iStar] != j) {
+            return BEST[iStar];
+        }
+
+        return SBEST[iStar];
+    }
+
     public static int solve(int N, int m, int[][] v, int[][] h)
     {
-        return 0;
+        int[][] OPT = new int[N + 1][m + 1];
+
+        int[] BEST = new int[N + 1];
+        int[] SBEST = new int[N + 1];
+
+        int prev1, prev2, prev3, tempBestI, tempBestV, tempSBestI, tempSBestV;
+
+        for(int i = 1; i <= N; i++) {
+            for(int j = 0; j <= m; j++) {
+
+                if(i >= 3) {
+                    prev1 = prev(i - 1, j, BEST, SBEST);
+                    prev2 = prev(i - 2, j, BEST, SBEST);
+                    prev3 = prev(i - 3, j, BEST, SBEST);
+
+                    OPT[i][j] = Math.max(
+                            v[j][i] + OPT[i - 1][prev1],
+                            Math.max(
+                                    v[j][i] + v[j][i - 1] + OPT[i - 2][prev2],
+                                    v[j][i] + v[j][i - 1] + v[j][i - 2] + h[j][i - 2] + OPT[i - 3][prev3]
+                            )
+                    );
+                }
+                else if(i == 2) {
+                    prev1 = prev(i - 1, j, BEST, SBEST);
+                    prev2 = prev(i - 2, j, BEST, SBEST);
+
+                    OPT[i][j] = Math.max(
+                            v[j][i] + OPT[i - 1][prev1],
+                            v[j][i] + v[j][i - 1] + OPT[i - 2][prev2]
+                    );
+                }
+                else {
+                    prev1 = prev(i - 1, j, BEST, SBEST);
+
+                    OPT[i][j] = v[j][i] + OPT[i - 1][prev1];
+                }
+            }
+
+            tempBestV = 0;
+            tempBestI = 0;
+
+            for(int k = 0; k <= m; k++) {
+                if(OPT[i][k] > tempBestV) {
+                    tempBestV = OPT[i][k];
+                    tempBestI = k;
+                }
+            }
+
+            BEST[i] = tempBestI;
+
+            tempSBestV = 0;
+            tempSBestI = 0;
+
+            for(int k = 0; k <= m; k++) {
+                if(OPT[i][k] > tempSBestV && k != BEST[i]) {
+                    tempSBestV = OPT[i][k];
+                    tempSBestI = k;
+                }
+            }
+
+            SBEST[i] = tempSBestI;
+        }
+
+
+        return OPT[N][BEST[N]];
     }
 
     public static void read_and_solve(InputStream in, PrintStream out) {
