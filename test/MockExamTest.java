@@ -23,7 +23,7 @@ public class MockExamTest {
         out = new ByteArrayOutputStream();
 
         try {
-            expected = new String(Files.readAllBytes(Paths.get(outPath)));
+            expected = new String(Files.readAllBytes(Paths.get(outPath))).replace("\r", "");
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -41,6 +41,36 @@ public class MockExamTest {
                 new PrintStream(out)
         );
 
-        assertEquals(expected, out.toString());
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testWindMillLarge() throws FileNotFoundException {
+        String inPath = "testCases/WindMill/large.in.txt";
+        String outPath = "testCases/WindMill/large.out.txt";
+
+        init(outPath);
+
+        WindMill.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void testWindMillSmall() throws FileNotFoundException {
+        String inPath = "testCases/WindMill/small.in.txt";
+        String outPath = "testCases/WindMill/small.out.txt";
+
+        init(outPath);
+
+        WindMill.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
     }
 }

@@ -25,7 +25,7 @@ public class BonusExercisesTest {
         out = new ByteArrayOutputStream();
 
         try {
-            expected = new String(Files.readAllBytes(Paths.get(outPath)));
+            expected = new String(Files.readAllBytes(Paths.get(outPath))).replace("\r", "");
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -178,7 +178,7 @@ public class BonusExercisesTest {
                 new PrintStream(out)
         );
 
-        assertEquals(expected, out.toString());
+        assertEquals(expected, out.toString().replace("\r", ""));
     }
 
     @Test
