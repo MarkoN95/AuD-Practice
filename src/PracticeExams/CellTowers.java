@@ -5,9 +5,36 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class CellTowers {
+    
     public static int solve(int n, int L, int R, int[] d, int[] c) {
-        
-        return 0;
+        int[] withLast = new int[n];
+
+        for(int i = 0; i < n; i++) {
+            if(d[i] <= R) {
+                withLast[i] = c[i];
+            }
+            else {
+                withLast[i] = Integer.MAX_VALUE;
+
+                for(int prev = i - 1; prev >= 0 && d[i] - d[prev] <= 2 * R; prev--) {
+                    int withPrev = withLast[prev] + c[i];
+
+                    if(withPrev < withLast[i]) {
+                        withLast[i] = withPrev;
+                    }
+                }
+            }
+        }
+
+        int minCost = Integer.MAX_VALUE;
+
+        for(int last = n - 1; last >= 0 && L - d[last] <= R; last--) {
+            if(withLast[last] < minCost) {
+                minCost = withLast[last];
+            }
+        }
+
+        return minCost;
     }
 
     public static void read_and_solve(InputStream in, PrintStream out) {
