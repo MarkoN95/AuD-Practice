@@ -1,35 +1,11 @@
+import BonusExercises.*;
 import org.junit.Test;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-import BonusExercises.*;
 
 import static org.junit.Assert.assertEquals;
 
-public class BonusExercisesTest {
-
-    private ByteArrayOutputStream out;
-    private String expected = "";
-
-    private void init(String outPath) {
-        if(out != null) {
-            try {
-                out.close();
-            } catch(IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        out = new ByteArrayOutputStream();
-
-        try {
-            expected = new String(Files.readAllBytes(Paths.get(outPath))).replace("\r", "");
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
+public class BonusExercisesTest extends AuDTest {
 
     @Test
     public void testSlidingCoinExample() throws FileNotFoundException {

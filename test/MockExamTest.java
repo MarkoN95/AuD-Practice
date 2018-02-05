@@ -2,32 +2,10 @@ import MockExam.*;
 import org.junit.Test;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
 
-public class MockExamTest {
-    private ByteArrayOutputStream out;
-    private String expected = "";
-
-    private void init(String outPath) {
-        if(out != null) {
-            try {
-                out.close();
-            } catch(IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        out = new ByteArrayOutputStream();
-
-        try {
-            expected = new String(Files.readAllBytes(Paths.get(outPath))).replace("\r", "");
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
+public class MockExamTest extends AuDTest {
 
     @Test
     public void testWindMillExample() throws FileNotFoundException {
