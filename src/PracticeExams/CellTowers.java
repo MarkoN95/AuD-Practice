@@ -5,7 +5,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class CellTowers {
-    
+
     public static int solve(int n, int L, int R, int[] d, int[] c) {
         int[] withLast = new int[n];
 
