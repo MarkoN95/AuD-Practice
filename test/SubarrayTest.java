@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class SubarrayTest {
 
-    private int[] input = { -2, 1, -3, 4, -1, 2, 1, -5, 4};
+    private int[] input = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 
     @Test
     public void testSubarraySum() {
@@ -18,7 +18,7 @@ public class SubarrayTest {
 
     @Test
     public void testMaxSubarray() {
-        int[] expected = new int[]{ 4, -1, 2, 1 };
+        int[] expected = { 4, -1, 2, 1 };
         int[] actual = Subarray.maxSubarray(input);
 
         assertArrayEquals(expected, actual);
